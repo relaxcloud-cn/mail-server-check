@@ -54,6 +54,8 @@ python3 app.py
 
 3. 输入要检查的域名并点击"检查"
 
+<div align=center> <img src=".img/2024-12-03-10-12-31.png" width = 80%/> </div>
+
 ### 命令行界面
 
 邮件banner收集
