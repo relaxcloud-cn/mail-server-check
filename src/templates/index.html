@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="zh-CN" class="h-full">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>邮件域名安全检查工具</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <style>
+      .swal2-popup {
+        background: #282a36 !important;
+        color: #f8f8f2 !important;
+      }
+      .swal2-title {
+        color: #bd93f9 !important;
+      }
+      .swal2-html-container {
+        color: #f8f8f2 !important;
+      }
+      .swal2-icon.swal2-error {
+        border-color: #ff5555 !important;
+      }
+      .swal2-icon.swal2-error [class^=swal2-x-mark-line] {
+        background-color: #ff5555 !important;
+      }
+      .swal2-confirm.swal2-styled {
+        background-color: #bd93f9 !important;
+      }
+      .swal2-confirm.swal2-styled:focus {
+        box-shadow: 0 0 0 3px rgba(189, 147, 249, 0.5) !important;
+      }
+    </style>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              dracula: {
+                bg: '#282a36',
+                current: '#44475a',
+                selection: '#44475a',
+                fg: '#f8f8f2',
+                comment: '#6272a4',
+                cyan: '#8be9fd',
+                green: '#50fa7b',
+                orange: '#ffb86c',
+                pink: '#ff79c6',
+                purple: '#bd93f9',
+                red: '#ff5555',
+                yellow: '#f1fa8c'
+              },
+            },
+          },
+        },
+      }
+    </script>
+  </head>
+  <body class="h-full bg-dracula-bg text-dracula-fg">
+    <!-- Header Section -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div class="text-center space-y-4">
+        <h1 class="text-4xl font-bold text-dracula-purple">
+          邮件域名安全检查工具
+        </h1>
+        <p class="text-xl text-dracula-comment">
+          检查邮件域名的安全风险，防范钓鱼和欺诈威胁
+        </p>
+      </div>
+
+      <!-- Main Content -->
+      <div class="mt-12 bg-dracula-current rounded-lg shadow-xl p-6">
+        <!-- Input Section -->
+        <div class="space-y-4">
+          <div class="flex flex-col sm:flex-row gap-4">
+            <div class="flex-1">
+              <input
+                type="text"
+                id="domainInput"
+                placeholder="请输入要检查的域名，例如: example.com"
+                class="w-full px-4 py-3 bg-dracula-bg border-2 border-dracula-purple rounded-lg 
+                       focus:outline-none focus:ring-2 focus:ring-dracula-pink focus:border-dracula-pink
+                       placeholder-dracula-comment text-dracula-fg transition-all duration-300"
+              />
+            </div>
+            <button
+              id="checkButton"
+              class="px-6 py-3 bg-dracula-purple hover:bg-dracula-pink text-dracula-fg font-semibold 
+                     rounded-lg transition-all duration-300 transform hover:scale-105 
+                     flex items-center justify-center gap-2 min-w-[120px]"
+            >
+              <span>开始检查</span>
+            </button>
+          </div>
+
+          <!-- Loading State -->
+          <div id="loading" class="hidden">
+            <div class="flex flex-col items-center justify-center space-y-4 py-8">
+              <div class="w-12 h-12 border-4 border-dracula-purple border-t-dracula-pink 
+                          rounded-full animate-spin"></div>
+              <div class="text-dracula-comment text-lg">正在检查域名安全性...</div>
+            </div>
+          </div>
+
+          <!-- Error Message -->
+          <div id="error" class="hidden">
+            <div class="bg-dracula-red/20 text-dracula-red px-4 py-3 rounded-lg"></div>
+          </div>
+
+          <!-- Results Table -->
+          <div id="tableContainer" class="hidden mt-8">
+            <div class="overflow-x-auto">
+              <table id="resultTable" class="min-w-full divide-y divide-dracula-comment/20">
+                <thead id="tableHead" class="bg-dracula-current">
+                </thead>
+                <tbody id="tableBody" class="divide-y divide-dracula-comment/20">
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="/static/js/main.js"></script>
+  </body>
+</html>
