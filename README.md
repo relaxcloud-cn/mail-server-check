@@ -20,6 +20,8 @@
 
 ## 安装说明
 
+### 源码安装
+
 1. 克隆仓库：
 
 ```bash
@@ -37,6 +39,16 @@ apt install nmap
 
 ```bash
 pip3 install -r requirements.txt
+```
+
+## docker
+
+```
+docker pull relaxcloud/mail-server-check
+
+#运行镜像
+
+docker run -itd -p 5000:5000 relaxcloud/mail-server-check
 ```
 
 ## 使用说明
