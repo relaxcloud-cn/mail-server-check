@@ -1,0 +1,12 @@
+dnslib
+py-emailprotections
+tldextract
+dnspython
+pwntools
+checkdmarc
+loguru
+pandas
+flask
+gunicorn
+gevent
+pydantic

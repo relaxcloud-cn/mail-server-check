@@ -1,5 +1,4 @@
 reports
 __pycache__
 *.csv
-*.txt
 src/result.json

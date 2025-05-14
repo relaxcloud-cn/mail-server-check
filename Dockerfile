@@ -17,4 +17,4 @@ RUN mkdir /app
 WORKDIR /app
 COPY ./src/ /app
 RUN test ! -e /app/requirements.txt || pip install --no-cache-dir -r /app/requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple
-ENTRYPOINT ["gunicorn", "app:app", "-b", ":5000", "-k", "gevent", "--log-level", "info"]
+ENTRYPOINT ["gunicorn", "app:app", "-b", ":5000", "--log-level", "info"]
