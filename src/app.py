@@ -30,7 +30,10 @@ def check_domain():
         return jsonify({"error": "No domain provided"}), 400
 
     checker = spoofcheck.SpoofCheck()
-    report = checker.check(domain)
+    try:
+        report = checker.check(domain)
+    except Exception:
+        return jsonify({"error": "可能存在网络波动未找到MX记录"}), 500
     if report is None:
         return jsonify({"info": "域名无风险"}), 200
     return jsonify(report.to_dict())

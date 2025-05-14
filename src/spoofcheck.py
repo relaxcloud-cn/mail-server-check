@@ -39,7 +39,10 @@ class SpoofCheck:
         """
         # 这里不做异常捕获，有问题直接抛出即可
         mx_domains = [mx_domain["hostname"] for mx_domain in spf.get_mx_records(domain, nameservers=self.nameservers)]
-        assert mx_domains, f"{domain} 未找到 MX 记录"
+        if not mx_domains:
+            mx_domains.append(domain)
+            if not domain.startswith("mail."):
+                mx_domains.append(f"mail.{domain}")
         return mx_domains
 
     def is_exist_spf_spoof(self, domain: str) -> Optional[Risk]:
