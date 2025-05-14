@@ -25,7 +25,7 @@
 1. 克隆仓库：
 
 ```bash
-git clone https://github.com/relaxcloud-cn/mail-server-check.git
+git clone https://github.com/relaxcloud/mail-server-check.git
 cd mail_server_check
 ```
 
